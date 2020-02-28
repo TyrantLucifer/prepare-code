@@ -8,6 +8,7 @@
 " 生成预定于代码
 function! prepare#prepare#gen_prepare_code()
     let suffix = prepare#util#get_current_file_suffix()
+    call <sid>gen_information(suffix)
     call <sid>gen_prepare_code_by_suffix(suffix)
 endfunction
 
@@ -72,3 +73,23 @@ function! s:get_prepare_code(suffix)
     return prepare#util#read_file(file_path)
 endfunction
 
+" 生成作者信息
+function! s:gen_information(suffix)
+    if a:suffix == 'sh' || a:suffix == 'py'
+        call setline(1, "##########################################################################")
+        call append(line("."), "# File Name: ".expand("%"))
+        call append(line(".")+1, "# Author: Name")
+        call append(line(".")+2, "# mail: Name@qq.com")
+        call append(line(".")+3, "# Created Time: ".strftime("%c"))
+        call append(line(".")+4, "##########################################################################")
+        call append(line(".")+5, "")
+    elseif a:suffix == 'c' || a:suffix == 'cpp' || a:suffix == 'h'
+        call setline(1, "/*************************************************************************")
+        call append(line("."), "*File Name: ".expand("%"))
+        call append(line(".")+1, "*Author: Name")
+        call append(line(".")+2, "*Name@qq.com")
+        call append(line(".")+3, "*Created Time: ".strftime("%c"))
+        call append(line(".")+4, " ************************************************************************/")
+        call append(line(".")+5, "")
+    endif
+endfunction

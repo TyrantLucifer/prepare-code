@@ -13,6 +13,7 @@ endfunction
 
 " 在当前行写入文本
 function! prepare#util#write_text_at_current_row(text)
+    execute "normal G"
     execute "normal i" . a:text
 endfunction
 
