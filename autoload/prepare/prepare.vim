@@ -85,7 +85,7 @@ function! s:gen_information(suffix)
         call append(line(".")+5, "##########################################################################")
         call append(line(".")+6, "")
     elseif a:suffix == 'sh'
-        call setline(1, "!/bin/bash")
+        call setline(1, "#!/bin/bash")
         call append(line("."), "##########################################################################")
         call append(line(".")+1, "# File Name: ".expand("%"))
         call append(line(".")+2, "# Author: TyrantLucifer")
