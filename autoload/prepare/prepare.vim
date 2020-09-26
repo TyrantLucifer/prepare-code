@@ -75,21 +75,33 @@ endfunction
 
 " 生成作者信息
 function! s:gen_information(suffix)
-    if a:suffix == 'sh' || a:suffix == 'py'
+    if a:suffix == 'py'
         call setline(1, "##########################################################################")
         call append(line("."), "# File Name: ".expand("%"))
-        call append(line(".")+1, "# Author: Name")
-        call append(line(".")+2, "# mail: Name@qq.com")
-        call append(line(".")+3, "# Created Time: ".strftime("%c"))
-        call append(line(".")+4, "##########################################################################")
-        call append(line(".")+5, "")
+        call append(line(".")+1, "# Author: TyrantLucifer")
+        call append(line(".")+2, "# E-mail: TyrantLucifer@gmail.com")
+        call append(line(".")+3, "# Blog: https://tyrantlucifer.com")
+        call append(line(".")+4, "# Created Time: ".strftime("%c"))
+        call append(line(".")+5, "##########################################################################")
+        call append(line(".")+6, "")
+    elseif a:suffix == 'sh'
+        call setline(1, "!/bin/bash")
+        call append(line("."), "##########################################################################")
+        call append(line(".")+1, "# File Name: ".expand("%"))
+        call append(line(".")+2, "# Author: TyrantLucifer")
+        call append(line(".")+3, "# E-mail: TyrantLucifer@gmail.com")
+        call append(line(".")+4, "# Blog: https://tyrantLucifer.com")
+        call append(line(".")+5, "# Created Time: ".strftime("%c"))
+        call append(line(".")+6, "##########################################################################")
+        call append(line(".")+7, "")
     elseif a:suffix == 'c' || a:suffix == 'cpp' || a:suffix == 'h'
         call setline(1, "/*************************************************************************")
         call append(line("."), "*File Name: ".expand("%"))
-        call append(line(".")+1, "*Author: Name")
-        call append(line(".")+2, "*Name@qq.com")
-        call append(line(".")+3, "*Created Time: ".strftime("%c"))
-        call append(line(".")+4, " ************************************************************************/")
-        call append(line(".")+5, "")
+        call append(line(".")+1, "* Author: TyrantLucifer")
+        call append(line(".")+2, "* E-mail: TyrantLucifer@gamil.com")
+        call append(line(".")+3, "* Blog: https://tyrantlucifer.com")
+        call append(line(".")+4, "* Created Time: ".strftime("%c"))
+        call append(line(".")+5, " ************************************************************************/")
+        call append(line(".")+6, "")
     endif
 endfunction
