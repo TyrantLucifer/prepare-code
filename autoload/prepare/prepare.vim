@@ -96,7 +96,7 @@ function! s:gen_information(suffix)
         call append(line(".")+7, "")
     elseif a:suffix == 'c' || a:suffix == 'cpp' || a:suffix == 'h'
         call setline(1, "/*************************************************************************")
-        call append(line("."), "*File Name: ".expand("%"))
+        call append(line("."), "* File Name: ".expand("%"))
         call append(line(".")+1, "* Author: TyrantLucifer")
         call append(line(".")+2, "* E-mail: TyrantLucifer@gamil.com")
         call append(line(".")+3, "* Blog: https://tyrantlucifer.com")
